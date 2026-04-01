@@ -104,8 +104,12 @@ function DashboardSummary({ budgetForm, portfolioAiForm, portfolioAiAdvice, watc
         </div>
 
         <div className="dashboard-side">
-          <div className="card elevated-card">
+          <div className="card elevated-card dashboard-momentum-card">
             <p className="eyebrow">Momentum</p>
+            <h3>How your plan is building</h3>
+            <p className="summary-text">
+              A quick read on the parts of your investing plan that are already moving in the right direction.
+            </p>
             <div className="signal-grid dashboard-signal-grid">
               <article className="signal-card">
                 <span>Starting amount</span>

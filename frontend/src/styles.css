@@ -399,13 +399,13 @@ h1 {
   grid-template-columns: 1.2fr 0.8fr;
 }
 
-.dashboard-lower-grid,
-.dashboard-side {
+.dashboard-lower-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .dashboard-side {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
@@ -413,12 +413,16 @@ h1 {
   min-height: 100%;
 }
 
+.dashboard-momentum-card h3 {
+  margin-top: 0.35rem;
+}
+
 .dashboard-stats {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .dashboard-signal-grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .dashboard-chip-list {
@@ -1187,6 +1191,10 @@ h1 {
   }
 
   .dashboard-side {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-signal-grid {
     grid-template-columns: 1fr;
   }
 }
