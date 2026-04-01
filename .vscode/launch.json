@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "BudgetVest Backend Debug",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "app.main:app",
+                "--reload"
+            ],
+            "cwd": "${workspaceFolder}/backend",
+            "envFile": "${workspaceFolder}/backend/.env",
+            "jinja": true,
+            "preLaunchTask": "BudgetVest: Install Backend Dependencies"
+        },
+        {
+            "name": "BudgetVest Open App",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "url": "http://127.0.0.1:5173",
+            "webRoot": "${workspaceFolder}/frontend",
+            "preLaunchTask": "BudgetVest: Start Full Stack"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "BudgetVest Full Stack Automated",
+            "configurations": [
+                "BudgetVest Open App"
+            ],
+            "stopAll": true
+        }
+    ]
+}

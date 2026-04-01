@@ -1,0 +1,112 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "BudgetVest: Install Backend Dependencies",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                "-m",
+                "pip",
+                "install",
+                "-r",
+                "requirements.txt"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "BudgetVest: Install Frontend Dependencies",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "install"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "BudgetVest: Backend Dev Server",
+            "type": "shell",
+            "command": "${command:python.interpreterPath}",
+            "args": [
+                "-m",
+                "uvicorn",
+                "app.main:app",
+                "--reload"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "."
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".",
+                    "endsPattern": "Uvicorn running on http://127\\.0\\.0\\.1:8000|Uvicorn running on http://0\\.0\\.0\\.0:8000|Application startup complete\\."
+                }
+            }
+        },
+        {
+            "label": "BudgetVest: Frontend Dev Server",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "dev"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "."
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".",
+                    "endsPattern": "Local:\\s+http://127\\.0\\.0\\.1:5173/|Local:\\s+http://localhost:5173/"
+                }
+            }
+        },
+        {
+            "label": "BudgetVest: Start Full Stack",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "BudgetVest: Install Backend Dependencies",
+                "BudgetVest: Install Frontend Dependencies",
+                "BudgetVest: Backend Dev Server",
+                "BudgetVest: Frontend Dev Server"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
