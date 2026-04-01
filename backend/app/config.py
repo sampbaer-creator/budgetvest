@@ -35,5 +35,5 @@ def get_settings() -> Settings:
         openai_api_key=os.getenv("OPENAI_API_KEY", "").strip(),
         openai_model=os.getenv("OPENAI_MODEL", "gpt-5.4-mini").strip(),
         cors_origins=[origin.strip() for origin in origins.split(",") if origin.strip()],
-        cors_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
+        cors_origin_regex=r"https?://((localhost|127\.0\.0\.1)(:\d+)?|([a-zA-Z0-9-]+\.)*vercel\.app)",
     )
